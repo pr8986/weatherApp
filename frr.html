@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="container"class=" bg-cover bg-no-repeat h-max min-h-screen w-screen" style="background-image: url(./image/img2.jpg)">
+        <nav id="navbar" class="flex w-screen justify-between py-2 px-4 ">
+            <h1
+                class="lg:text-5xl text-[2.55rem]  font-semibold bg-gradient-to-r from-red-600 to-purple-600 text-transparent bg-clip-text ml-1 lg:ml-2 ">
+                Weather</h1>
+            <form class="flex" id="WEATHER-FORM">
+                <input
+                    class="rounded-full rounded-r-none bg-[#405A63] p-[14px] w-[40vw] md:w-[21vw] lg:w-[27vw] focus:outline-none focus:ring-2 focus:ring-[#1E3D48] mr-[0.5px] "
+                    type="text" placeholder="Enter city name" id="CITY">
+                <button type="submit"
+                    class="w-10 rounded-full rounded-l-none bg-[#405A63] cursor-pointer focus:ring-2 focus:ring-[#1E3D48]"><img
+                        src="./image/search3.png" alt="img"></button>
+            </form>
+        </nav>
+        <div id="main" class="flex justify-between w-screen flex lg:flex-row flex-col" id="CONTAINER">
+            <div id="left" class="rounded-md m-5 lg:w-[61vw] lg:h-max pb-[32px] bg-[#3B4050] bg-opacity-35 ">
+                <div id="scroll" class="flex md:flex-row md:flex flex-col-reverse md:justify-between lg:flex lg:flex-row lg:justify-between pb-[20px] overflow-y-hidden overflow-x-scroll justify-between text-gray-100">
+                    <span class="flex flex-row  md:flex-col md:flex lg:ml-4 ml-2 mr-20 font-thin">
+                        <h2 id="WEATHER-INFO" class="text-6xl md:text-9xl lg:text-9xl ">Bangalore </h2>
+                        <span class="flex text-2xl md:text-3xl ml-4 gap-2 mt-1 self-end md:self-start">
+                            <h4  id="STATE">Calatonia </h4>
+                            <h4  id="COUNTRY">Spain </h4>
+                        </span>
+                    </span>
+                    <span>
+                        <p class="text-6xl md:text-9xl mr-4 md:ml-1 font-thin" id="DEGREE"></p>
+                    </span>
+                </div>
+                <p class="text-5xl p-4 text-[#8AB8EC]" id="TEMPCONDITION">Partly Cloud</p>
+                <p class="underline font-bold m-4 ml-8 text-3xl">Forecast:</p>
+                <!-- <div class="grid grid-cols-4  gap-x-40 md:gap-x-10 mx-6 mt-5 lg:grid lg:grid-cols-4 lg:mt-6 lg:gap-x-6 lg:mx-12"> -->
+                <div class="grid grid-cols-4 mx-[48px] mt-[20px]">
+                    <div class="max-w-xs rounded-md overflow-hidden shadow-lg relative">
+                        <img class=" w-40 h-40" src="./image/bg-img.jpg">
+                        <div >
+                            <p class="text-white font-semibold absolute left-14 top-16" id="FRSTCONDITION1">Clear</p>
+                            <p class="text-white font-semibold absolute left-6 top-20" id="FRSTDAY1">Sat Feb 17 2024</p>
+                        </div>
+                    </div>
+                    <div class="max-w-xs rounded-md overflow-hidden shadow-lg relative">
+                        <img class="w-40 h-40" src="./image/bg-img.jpg">
+                        <div>
+                            <p class="text-white font-semibold absolute left-14 top-16" id="FRSTCONDITION2">Clear</p>
+                            <p class="text-white font-semibold absolute left-6 top-20" id="FRSTDAY2">Sun Feb 17 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="right"
+                class="md:w-[98vw] w-[88vw] lg:w-[35vw] flex md:flex-row lg:flex-col flex-col md:ml-1 lg:mr-10 sm:ml-6 mx-[4px]">
+                <div id="right-up" class=" rounded-md m-5 py-[40px] px-5  grid grid-cols-1 gap-[2px]   
+                 bg-[#3B4050] bg-opacity-35 w-full">
+                    <p class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] rounded-t-lg ">Last Updated: <span id="UPDATE"
+                            class="text-[#F28D3B]"></span></p>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] ">Temperature in F: <span id="TEMPF"
+                            class="text-[#F28D3B]"></span></P>
+                    <p class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] ">Feels Like: <span id="FEELS"
+                            class="text-[#F28D3B]"></span></p>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] ">Humidity: <span id="HUMIDITY"
+                            class="text-[#F28D3B]"></span></P>
+                    <P class="bg-[#1f232B] p-1  text-[#8AB8EC] text-[21px] rounded-b-lg  ">Wind Direction: <span
+                            id="DIRECTION" class="text-[#F28D3B]"></span></P>
+                </div>
+                <div id="right-down" class=" rounded-md m-5 py-[40px]  px-5 grid grid-cols-1 gap-[2px] 
+                 bg-[#3B4050] bg-opacity-35 w-full lg:mt-0">
+                    <P class="underline bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] rounded-t-lg ">Air Quality Index</P>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] "> Carbon Monoxide:
+                        <span class="text-[#F28D3B]" id="CARBON"></span>
+                    </P>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] ">Nitrogen Dioxide:
+                        <span class="text-[#F28D3B]" id="NITROGEN"></span>
+                    </P>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] ">Ozone:
+                        <span class="text-[#F28D3B]" id="OZONE"></span>
+                    </P>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] ">Sulpher Dioxide:
+                        <span class="text-[#F28D3B]" id="SULPHER"></span>
+                    </P>
+                    <P class="bg-[#1f232B] p-1 text-[#8AB8EC] text-[21px] rounded-b-lg ">PM 2.5:
+                        <span class="text-[#F28D3B]" id="PM"></span>
+                    </P>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <p class="text-center text-white bg-black  p-1 w-screen ">Created By:<span
+                class="hover:cursor-pointer hover:underline">Prabhakar Kumar</span></p>
+    </div> -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
